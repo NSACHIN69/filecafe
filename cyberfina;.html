@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Cafe Interface</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #4CAF50;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        .user-info {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .user-info img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 60px);
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            width: 100px;
+            height: 100px;
+        }
+        .card h3 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .card p {
+            font-size: 14px;
+            color: #666;
+        }
+        .card button {
+            padding: 10px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .card button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    
+    <script>
+        // Function to get the email from the URL query string
+        function getEmailFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('email');
+        }
+
+        // Display email and Gmail logo
+        window.onload = function() {
+            const userEmail = getEmailFromUrl();
+            if (userEmail) {
+                document.getElementById('user-email').textContent = userEmail;
+                document.getElementById('user-info').style.display = 'flex'; // Show user info
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Welcome to DAV CYBER CAFE! HEADBOI KO CAFE </h1>
+        <div id="user-info" class="user-info" style="display: none;">
+            <img src="gmail_logo.png" alt="Gmail Logo"> <!-- Replace with actual Gmail logo path -->
+            <span id="user-email"></span>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="card">
+            <img src="browse_icon.png" alt="Browse Icon">
+            <h3>Browse Internet</h3>
+            <p>Access the internet for surfing, research, and smthg else too</p>
+            <button onclick="alert('Browsing...')">Start Browsing</button>
+        </div>
+
+        <div class="card">
+            <img src="games_icon.png" alt="Games Icon">
+            <h3>Play Games</h3>
+            <p>Enjoy online game.. kta kt ko dil sanga pani khelnus</p>
+            <button onclick="alert('Launching Games...')">Play Now</button>
+        </div>
+
+        <div class="card">
+            <img src="print_icon.png" alt="Print Icon">
+            <h3>Printing Service</h3>
+            <p>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Create Account for ur pookie :)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(https://media.edusanjal.com/__sized__/cover_photo/DAV-Cover-3-crop-c0-5__0-5-302x128-70.jpg);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .toggle-link {
+            margin-top: 15px;
+            display: inline-block;
+            color: #007bff;
+            cursor: pointer;
+        }
+        .toggle-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function toggleForm() {
+            const loginForm = document.getElementById('login-form');
+            const createAccountForm = document.getElementById('create-account-form');
+            if (loginForm.style.display === 'none') {
+                loginForm.style.display = 'block';
+                createAccountForm.style.display = 'none';
+            } else {
+                loginForm.style.display = 'none';
+                createAccountForm.style.display = 'block';
+            }
+        }
+
+        // Redirect function for login and registration
+        function handleFormSubmit(event, formType) {
+            event.preventDefault(); // Prevent actual form submission
+            const email = formType === 'login'
+                ? document.getElementById('login-email').value
+                : document.getElementById('register-email').value;
+            
+            // Redirect to the cyber cafe page with the user's email
+            window.location.href = `cyber_cafe.html?email=${encodeURIComponent(email)}`;
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Login Form -->
+        <div id="login-form">
+            <h2>Login</h2>
+            <form onsubmit="handleFormSubmit(event, 'login')">
+                <label for="login-username">Username</label>
+                <input type="text" id="login-username" name="username" required>
+
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" name="email" required>
+
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" name="password" required>
+
+                <input type="submit" value="Login">
+            </form>
+            <span class="toggle-link" onclick="toggleForm()">ACCOUNT XAINA?</span>
+        </div>
+
+        <!-- Create Account Form -->
+        <div id="create-account-form" style="display: none;">
+            <h2>Create Account</h2>
+            <form onsubmit="handleFormSubmit(event, 'register')">
+                <label for="register-username">Username</label>
+                <input type="text" id="register-username" name="username" required>
+
+                <label for="register-email">Email</label>
+                <input type="email" id="register-email" name="email" required>
+
+                <label for="register-password">Password</label>
+                <input type="password" id="register-password" name="password" required>
+
+                <input type="submit" value="Create Account">
+            </form>
+            <span class="toggle-link" onclick="toggleForm()">ACCOUNT XA ..ANPADH HOINA MA</span>
+        </div>
+    </div>
+
+</body>
+</html>
